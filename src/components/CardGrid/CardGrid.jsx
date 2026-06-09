@@ -5,9 +5,15 @@ import "./CardGrid.css";
 
 export default function CardGrid({ data }) {
   const [shuffledData, setShuffledData] = useState(data);
+  const [clickedCardIds, setClickedCardIds] = useState([]);
 
-  const handleClick = () => {
+  const handleClick = (cardId) => {
     setShuffledData(shuffleArray(shuffledData));
+    if (clickedCardIds.includes(cardId)) {
+      setClickedCardIds([]);
+    } else {
+      setClickedCardIds([...clickedCardIds, cardId]);
+    }
   };
 
   return (
@@ -17,7 +23,7 @@ export default function CardGrid({ data }) {
           key={d.id}
           imgUrl={d.imgUrl}
           title={d.title}
-          handleClick={handleClick}
+          handleClick={() => handleClick(d.id)}
         />
       ))}
     </div>
