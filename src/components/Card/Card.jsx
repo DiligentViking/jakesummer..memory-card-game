@@ -1,3 +1,5 @@
+import "./Card.css";
+
 export default function Card({ imgUrl, title, handleClick }) {
   return (
     <button className="card" onClick={handleClick}>
