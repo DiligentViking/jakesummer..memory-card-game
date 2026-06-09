@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Card from "../Card/Card.jsx";
 import shuffleArray from "../../utils/shuffleArray.js";
+import "./CardGrid.css";
 
 export default function CardGrid({ data }) {
   const [shuffledData, setShuffledData] = useState(data);
