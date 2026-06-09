@@ -2,11 +2,14 @@ import { useState } from "react";
 import Card from "../Card/Card.jsx";
 import shuffleArray from "../../utils/shuffleArray.js";
 import "./CardGrid.css";
+import clickAudioMp3 from "../../assets/audio/button-click-sound-effect.mp3";
 
 export default function CardGrid({ data, onClick }) {
   const [shuffledData, setShuffledData] = useState(data);
 
   const handleClick = (cardId) => {
+    const clickAudio = new Audio(clickAudioMp3);
+    clickAudio.play();
     setShuffledData(shuffleArray(shuffledData));
     onClick(cardId);
   };
