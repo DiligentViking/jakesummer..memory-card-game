@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./App.css";
 import fetchData from "./services/fetchData.js";
 import shuffleArray from "./utils/shuffleArray.js";
@@ -14,9 +14,15 @@ function App() {
     isLoading: false,
     error: false,
   });
+  const newRound = useRef(false);
   const [clickedCardIds, setClickedCardIds] = useState([]);
   const [bestScore, setBestScore] = useState(0);
   const score = clickedCardIds.length;
+
+  if (newRound.current) {
+    newRound.current = false;
+    alert("You lost! New round!");
+  }
 
   useEffect(() => {
     let ignore = false;
@@ -50,6 +56,7 @@ function App() {
   const onCardClick = (cardId) => {
     if (clickedCardIds.includes(cardId)) {
       setClickedCardIds([]);
+      newRound.current = true;
     } else {
       setClickedCardIds([...clickedCardIds, cardId]);
 
