@@ -6,6 +6,8 @@ import Loading from "./components/Loading/Loading.jsx";
 import CardGrid from "./components/CardGrid/CardGrid.jsx";
 import Header from "./components/Header/Header.jsx";
 
+const DEVMODE = true;
+
 function App() {
   const [apiStatus, setApiStatus] = useState({
     data: [],
@@ -61,7 +63,11 @@ function App() {
       {apiStatus.data.length > 0 && (
         <>
           <Header score={score} bestScore={bestScore} />
-          <CardGrid data={apiStatus.data} onClick={onCardClick} />
+          <CardGrid
+            data={apiStatus.data}
+            onClick={onCardClick}
+            clickedCardIds={DEVMODE ? clickedCardIds : null}
+          />
         </>
       )}
     </>

@@ -39,3 +39,7 @@
   width: 100%;
   word-break: break-word;
 }
+
+.card[data-dev-clicked="true"] {
+  outline: 5px solid red;
+}
