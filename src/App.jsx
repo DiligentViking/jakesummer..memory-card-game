@@ -18,10 +18,16 @@ function App() {
   const [clickedCardIds, setClickedCardIds] = useState([]);
   const [bestScore, setBestScore] = useState(0);
   const score = clickedCardIds.length;
+  const highestPossibleScore = apiStatus.data.length;
 
   if (newRound.current) {
     newRound.current = false;
     alert("You lost! New round!");
+  }
+
+  if (highestPossibleScore && highestPossibleScore === score) {
+    setClickedCardIds([]);
+    alert("You win! New round!");
   }
 
   useEffect(() => {
