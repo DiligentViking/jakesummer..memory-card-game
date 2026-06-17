@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import fetchData from "./utils/fetchData.js";
+import fetchData from "./services/fetchData.js";
 import shuffleArray from "./utils/shuffleArray.js";
 import Loading from "./components/Loading/Loading.jsx";
 import CardGrid from "./components/CardGrid/CardGrid.jsx";
